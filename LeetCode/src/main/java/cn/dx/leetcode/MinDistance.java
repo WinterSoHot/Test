@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class MinDistance {
     public int minDistance(int[] houses, int k) {
         int n = houses.length;
+        Arrays.sort(houses);
         int[][] rec = new int[n][n]; // rec[i][j] 用一个邮箱最小的花费
         for (int[] ints : rec) {
             Arrays.fill(ints, 0);
