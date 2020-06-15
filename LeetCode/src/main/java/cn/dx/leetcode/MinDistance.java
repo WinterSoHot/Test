@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 /**
  * 1478. 安排邮筒 https://leetcode-cn.com/problems/allocate-mailboxes/
- * 未通过
  */
 public class MinDistance {
     public int minDistance(int[] houses, int k) {
