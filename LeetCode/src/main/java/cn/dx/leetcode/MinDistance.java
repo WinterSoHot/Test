@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 /**
  * 1478. 安排邮筒 https://leetcode-cn.com/problems/allocate-mailboxes/
- * 未通过
  */
 public class MinDistance {
     public int minDistance(int[] houses, int k) {
         int n = houses.length;
+        Arrays.sort(houses);
         int[][] rec = new int[n][n]; // rec[i][j] 用一个邮箱最小的花费
         for (int[] ints : rec) {
             Arrays.fill(ints, 0);
