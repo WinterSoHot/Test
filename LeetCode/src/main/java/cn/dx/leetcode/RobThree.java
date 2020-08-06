@@ -19,12 +19,10 @@ import java.util.List;
  */
 public class RobThree {
 
-
-
     public int rob(TreeNode root) {
         if (root == null) {
             return 0;
-        };
+        }
         int robIncludeRoot = root.val;
         if (root.left!= null) {
             robIncludeRoot += rob(root.left.left) + rob(root.left.right);
