@@ -17,6 +17,9 @@ import java.util.*;
  * 链接：https://leetcode-cn.com/problems/keys-and-rooms
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
+ *
+ * 难度：中等
+ *
  * 思路：Set去重，保存能访问的房间，最后比较
  *
  * 官方思路：等同于有向图，问从0开始能否遍历全部节点。
