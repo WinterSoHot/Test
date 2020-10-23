@@ -17,6 +17,7 @@
         <module>LeetCode</module>
         <module>Collection</module>
         <module>Default</module>
+        <module>NettyDemo</module>
     </modules>
 
     <name>Test</name>
