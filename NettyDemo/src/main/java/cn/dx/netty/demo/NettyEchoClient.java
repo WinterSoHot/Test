@@ -1,4 +1,4 @@
-package cn.dx.netty;
+package cn.dx.netty.demo;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
