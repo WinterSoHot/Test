@@ -18,6 +18,8 @@
         <module>Collection</module>
         <module>Default</module>
         <module>NettyDemo</module>
+        <module>TinyWeb</module>
+        <module>RedisDemo</module>
     </modules>
 
     <name>Test</name>
