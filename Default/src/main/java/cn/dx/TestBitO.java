@@ -1,15 +1,12 @@
-import java.beans.BeanInfo;
+package cn.dx;
+
 import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
-import java.util.BitSet;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * TestBitO TODO
+ * cn.dx.TestBitO TODO
  *
  * @author dongxian
  * @version 1.0

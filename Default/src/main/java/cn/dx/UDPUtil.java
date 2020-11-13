@@ -1,3 +1,5 @@
+package cn.dx;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -17,7 +19,7 @@ public class UDPUtil {
      * @param content 发送内容
      * @return 返回内容
      */
-    public String sendDataByUDP(String host, Integer port, String content) {
+    public static String sendDataByUDP(String host, Integer port, String content) {
         DatagramSocket ds = null;
         try {
             ds = new DatagramSocket();

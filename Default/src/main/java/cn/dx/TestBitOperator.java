@@ -1,5 +1,7 @@
+package cn.dx;
+
 /**
- * TestBitOperator 位运算尝试
+ * cn.dx.TestBitOperator 位运算尝试
  *
  * @author dongxian
  * @version 1.0

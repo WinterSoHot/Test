@@ -1,3 +1,5 @@
+package cn.dx;
+
 /**
  * @author gudongxian
  * @version 0.1
