@@ -1,7 +1,7 @@
 // [开始声明]
 syntax = "proto3";
  //定义protobuf的包名称空间
-package cn.dx.netty.protocol;;
+package cn.dx.netty.protocol;
 // [结束声明]
 
 // [开始 java 选项配置]
