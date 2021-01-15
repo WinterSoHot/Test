@@ -9,4 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>MultiThread</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+    </dependencies>
 </project>
