@@ -1,4 +1,4 @@
-package cn.dx.io.code;
+package cn.dx;
 
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;

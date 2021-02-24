@@ -1,4 +1,4 @@
-package cn.dx.io.code;
+package cn.dx;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.*;
@@ -12,7 +12,7 @@ import java.util.List;
  * @version 0.1
  * @date 2020/11/5
  */
-public class App {
+public class Generator {
     public static void main(String[] args) {
         List<String> warnings = new ArrayList<>();
         boolean overwrite = true;
@@ -44,22 +44,26 @@ public class App {
 
             /*Model生成器配置*/
             JavaModelGeneratorConfiguration javaModelGeneratorConfig = new JavaModelGeneratorConfiguration();
-            javaModelGeneratorConfig.setTargetProject("MyBatisCode/output");//目标项目(源码主路径)
+            javaModelGeneratorConfig.setTargetProject("MyBatisCode/src/main/java");//目标项目(源码主路径)
             javaModelGeneratorConfig.setTargetPackage("cn.dx.model");//目标包(Model类文件存放包)
             context.setJavaModelGeneratorConfiguration(javaModelGeneratorConfig);
 
             /*SqlMapper生成器配置(*Mapper.xml类文件)，要javaClient生成器类型配合*/
             SqlMapGeneratorConfiguration sqlMapGeneratorConfig = new SqlMapGeneratorConfiguration();
-            sqlMapGeneratorConfig.setTargetProject("MyBatisCode/output");//目标项目(源码主路径)
+            sqlMapGeneratorConfig.setTargetProject("MyBatisCode/src/main/resources/mapper");//目标项目(源码主路径)
             sqlMapGeneratorConfig.setTargetPackage("cn.dx.mapper");//目标包(*Mapper.xml类文件存放包)
             context.setSqlMapGeneratorConfiguration(sqlMapGeneratorConfig);
 
             /*JavaClient生成器配置(*Mapper.java类文件)*/
             JavaClientGeneratorConfiguration javaClientGeneratorConfig = new JavaClientGeneratorConfiguration();
             javaClientGeneratorConfig.setConfigurationType("ANNOTATEDMAPPER");//JavaClient生成器类型(主要有ANNOTATEDMAPPER、MIXEDMAPPER、XMLMAPPER，要Context的TargetRuntime配合)
-            javaClientGeneratorConfig.setTargetProject("MyBatisCode/output");//目标项目(源码主路径)
+            javaClientGeneratorConfig.setTargetProject("MyBatisCode/src/main/java");//目标项目(源码主路径)
             javaClientGeneratorConfig.setTargetPackage("cn.dx.mapper");//目标包(*Mapper.java类文件存放包)
             context.setJavaClientGeneratorConfiguration(javaClientGeneratorConfig);
+
+            PluginConfiguration pluginConfiguration = new PluginConfiguration();
+            pluginConfiguration.setConfigurationType("org.mybatis.generator.plugins.ToStringPlugin");
+            context.addPluginConfiguration(pluginConfiguration);
 
             /*表生成配置*/
             TableConfiguration tableConfig = new TableConfiguration(context);
