@@ -1,4 +1,6 @@
-package cn.dx.bullcode;
+package cn.dx.offer;
+
+import cn.dx.bullcode.TreeNode;
 
 /**
  * 重建二叉树
