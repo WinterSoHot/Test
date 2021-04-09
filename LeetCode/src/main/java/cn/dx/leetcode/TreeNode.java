@@ -8,9 +8,9 @@ package cn.dx.leetcode;
  * 20-6-15 下午1:35
  **/
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     TreeNode() {
     }

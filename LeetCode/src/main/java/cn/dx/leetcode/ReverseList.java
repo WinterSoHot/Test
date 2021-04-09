@@ -28,4 +28,15 @@ public class ReverseList {
         // 最后
         return pre;
     }
+
+    public ListNode reverseList2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode p = reverseList2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
+    }
+
 }
