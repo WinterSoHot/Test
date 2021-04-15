@@ -1,0 +1,7 @@
+application:
+  name: 属性配置Demo
+  version: 0.1
+
+developer:
+  name: dongxian
+  phoneNumber: 12123344
