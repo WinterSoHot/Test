@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Point {
+public class Point implements Cloneable {
     private double x, y;
 }

@@ -47,6 +47,8 @@ public class Main {
         @Override
         protected void paintComponent(Graphics g) {
             Graphics2D g2 = (Graphics2D) g;
+
+            g2.setStroke(new BasicStroke(2.0f));
             List<Point> points = CatmullRom.splinePoints(keyPoints, 100);
             GeneralPath path = new GeneralPath();
             path.moveTo(points.get(0).getX(), points.get(0).getY());
@@ -54,6 +56,15 @@ public class Main {
                 path.lineTo(points.get(i).getX(), points.get(i).getY());
             }
             g2.draw(path);
+
+            g2.setPaint(Color.GREEN);
+            List<Point> movePoints = CatmullRom.catmullRomInterpolating(keyPoints, 100, 90, 10);
+            GeneralPath movePath = new GeneralPath();
+            movePath.moveTo(movePoints.get(0).getX(), movePoints.get(0).getY());
+            for (int i = 1; i < movePoints.size(); i++) {
+                movePath.lineTo(movePoints.get(i).getX(), movePoints.get(i).getY());
+            }
+            g2.draw(movePath);
 
             g2.setPaint(Color.RED);
             for (Point keyPoint : keyPoints) {

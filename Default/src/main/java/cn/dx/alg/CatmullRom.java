@@ -27,7 +27,7 @@ public class CatmullRom {
     public static List<Point> splinePoints(List<Point> controlPoints, int uNum) {
         List<Point> res = new LinkedList<>();
         int pointNum = controlPoints.size();
-        res.add(controlPoints.get(0));
+        res.add(new Point(controlPoints.get(0).getX(), controlPoints.get(0).getY()));
         List<Point> subControlPoints = new ArrayList<>();
         for (int i = 1; i < pointNum - 2; i++) {
             subControlPoints.add(controlPoints.get(i - 1));
@@ -41,7 +41,21 @@ public class CatmullRom {
             }
             subControlPoints.clear();
         }
-        res.add(controlPoints.get(controlPoints.size() - 1));
+        res.add(new Point(controlPoints.get(controlPoints.size() - 1).getX(), controlPoints.get(controlPoints.size() - 1).getY()));
         return res;
+    }
+
+    public static List<Point> catmullRomInterpolating(List<Point> keyPoints, int num, int angle, int distance) {
+        List<Point> points = CatmullRom.splinePoints(keyPoints, num);
+        double sin = Math.sin(Math.toRadians(angle));
+        double cos = Math.cos(Math.toRadians(angle));
+
+        Point disPoint = new Point(Math.abs(cos) > 1E-9 ? distance * cos : 0, Math.abs(sin) > 1E-9 ? distance * sin : 0);
+        points.forEach((point -> {
+            // 根据坐标系设置
+            point.setX(point.getX() + disPoint.getX());
+            point.setY(point.getY() - disPoint.getY());
+        }));
+        return points;
     }
 }
