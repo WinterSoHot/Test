@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.dx'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'ch.qos.logback:logback-core:1.2.3'
+    implementation 'org.slf4j:slf4j-api:1.7.10'
+    implementation 'net.bytebuddy:byte-buddy:1.10.9'
+    implementation 'net.bytebuddy:byte-buddy-agent:1.10.9'
+    implementation group: 'redis.clients', name: 'jedis', version: '3.3.0'
+    implementation 'org.apache.curator:curator-client:4.2.0'
+    implementation 'org.apache.curator:curator-framework:4.2.0'
+    implementation 'org.apache.curator:curator-recipes:4.2.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+configurations.all {
+}
+
+def createDir = {
+    path ->
+        File dir = new File(path)
+        if (!dir.exists()) {
+            dir.mkdirs()
+        }
+}
+
+task makeJavaDirs() {
+    def paths = ['src/main/java', 'src/main/resources']
+    doFirst {
+        paths.forEach(createDir)
+    }
+}
+
+task makeWebDirs() {
+    // 配置代码
+    dependsOn makeJavaDirs
+    def paths = ['src/main/wepapp']
+    // 执行代码
+    doLast {
+        paths.forEach(createDir)
+    }
+}
+
+gradle.beforeProject {
+    project ->
+        println("项目开始构建")
+}
