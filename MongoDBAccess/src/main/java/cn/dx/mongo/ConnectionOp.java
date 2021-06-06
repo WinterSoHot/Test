@@ -1,3 +1,5 @@
+package cn.dx.mongo;
+
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
@@ -26,7 +28,7 @@ public class ConnectionOp {
             collectionsName.forEach(System.out::println);
 
             FindIterable<Document>
-                    books = database.getCollection("Book").find();
+                    books = database.getCollection("cn.dx.mongo.Book").find();
             books.forEach((Consumer<Document>) document -> System.out.println(document.toJson()));
 
         }

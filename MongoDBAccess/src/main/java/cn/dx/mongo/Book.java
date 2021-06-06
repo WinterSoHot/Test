@@ -1,3 +1,5 @@
+package cn.dx.mongo;
+
 /**
  * @author gudongxian
  * @version 0.1
@@ -10,7 +12,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "cn.dx.mongo.Book{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
                 '}';
