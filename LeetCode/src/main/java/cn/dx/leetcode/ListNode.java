@@ -8,8 +8,8 @@ package cn.dx.leetcode;
  * @date 2020/8/18
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     ListNode() {
     }

@@ -1,6 +1,6 @@
 package cn.dx.offer;
 
-import cn.dx.bullcode.ListNode;
+import cn.dx.leetcode.ListNode;
 
 /**
  * 链表中倒数第k个结点

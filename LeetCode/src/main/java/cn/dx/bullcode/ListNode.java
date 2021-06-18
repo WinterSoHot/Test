@@ -6,10 +6,10 @@ package cn.dx.bullcode;
  * @date 2020/9/3
  */
 public class ListNode {
-    int val;
-    ListNode next = null;
+    public int val;
+    public ListNode next = null;
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 }

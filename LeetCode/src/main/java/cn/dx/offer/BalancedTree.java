@@ -1,6 +1,6 @@
 package cn.dx.offer;
 
-import cn.dx.bullcode.TreeNode;
+import cn.dx.leetcode.TreeNode;
 
 /**
  * 平衡二叉树

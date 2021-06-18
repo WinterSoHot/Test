@@ -1,6 +1,6 @@
 package cn.dx.offer;
 
-import cn.dx.bullcode.TreeNode;
+import cn.dx.leetcode.TreeNode;
 
 /**
  * 二叉搜索树与双向链表

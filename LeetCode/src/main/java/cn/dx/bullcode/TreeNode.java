@@ -6,11 +6,11 @@ package cn.dx.bullcode;
  * @date 2020/9/4
  */
 public class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
+    public int val = 0;
+    public TreeNode left = null;
+    public TreeNode right = null;
 
-    TreeNode(int x) {
+    public TreeNode(int x) {
         val = x;
     }
 }
