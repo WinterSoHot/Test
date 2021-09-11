@@ -21,6 +21,8 @@
         <module>spring-boot-demo</module>
         <module>rest-producer</module>
         <module>spring-cloud-hystrix</module>
+        <module>common-txevent</module>
+        <module>common-state</module>
     </modules>
     <description>
         记录自己的代码
