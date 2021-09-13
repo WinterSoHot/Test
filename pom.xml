@@ -11,11 +11,11 @@
     <modules>
         <module>scheduler</module>
         <module>MyBatisCode</module>
-        <module>LeetCode</module>
-        <module>JavaBasic</module>
-        <module>Default</module>
-        <module>NettyDemo</module>
-        <module>RedisDemo</module>
+        <module>algorithm</module>
+        <module>java-basic</module>
+        <module>default</module>
+        <module>netty-demo</module>
+        <module>redis-demo</module>
         <module>preview_pdf</module>
         <module>spring-context-demo</module>
         <module>spring-boot-demo</module>
@@ -41,6 +41,10 @@
         <hutool.version>5.4.5</hutool.version>
         <guava.version>29.0-jre</guava.version>
         <user.agent.version>1.20</user.agent.version>
+        <curator-client.version>4.2.0</curator-client.version>
+        <rocketmq-client.version>4.3.0</rocketmq-client.version>
+        <javassist.version>3.26.0-GA</javassist.version>
+        <resilience4j-circuitbreaker.version>0.12.1</resilience4j-circuitbreaker.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -50,6 +54,51 @@
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-circuitbreaker</artifactId>
+                <version>${resilience4j-circuitbreaker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.kie</groupId>
+                <artifactId>kie-ci</artifactId>
+                <version>7.1.0.Beta1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-decisiontables</artifactId>
+                <version>7.1.0.Beta1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy-agent</artifactId>
+                <version>1.10.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${curator-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator-client.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
