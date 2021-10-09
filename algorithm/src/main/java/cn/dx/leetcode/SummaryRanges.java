@@ -1,69 +1,72 @@
 package cn.dx.leetcode;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
- * 给定一个无重复元素的有序整数数组 nums 。
+ * 352. 将数据流变为多个不相交区间
+ * 给你一个由非负整数 a1, a2, ..., an 组成的数据流输入，请你将到目前为止看到的数字总结为不相交的区间列表。
  * <p>
- * 返回 恰好覆盖数组中所有数字 的 最小有序 区间范围列表。也就是说，nums 的每个元素都恰好被某个区间范围所覆盖，并且不存在属于某个范围但不属于 nums 的数字 x 。
+ * 实现 SummaryRanges 类：
  * <p>
- * 列表中的每个区间范围 [a,b] 应该按如下格式输出：
- * <p>
- * "a->b" ，如果 a != b
- * "a" ，如果 a == b
- * <p>
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/summary-ranges
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * SummaryRanges() 使用一个空数据流初始化对象。
+ * void addNum(int val) 向数据流中加入整数 val 。
+ * int[][] getIntervals() 以不相交区间 [starti, endi] 的列表形式返回对数据流中整数的总结。
  *
- * @author dongxian
- * @version 0.1
- * @date 2021/1/10
- **/
+ * @author gudongxian
+ * @date 2021/10/9
+ */
 public class SummaryRanges {
-    public List<String> summaryRanges(int[] nums) {
-        List<String> ret = new LinkedList<>();
-        if (nums.length == 0) {
-            return ret;
-        }
-        boolean flag = true;
-        int pre = Integer.MIN_VALUE;
-        int start = Integer.MIN_VALUE;
-        int count = 0;
-        for (int num : nums) {
-            if (flag) {
-                start = num;
-                pre = num;
-                count = 1;
-                flag = false;
-            } else {
-                if (num - pre == 1) {
-                    pre = num;
-                    count++;
-                } else {
-                    if (count == 1) {
-                        ret.add(start + "");
-                    } else {
-                        ret.add(start + "->" + pre);
-                    }
-                    start = num;
-                    count = 1;
-                    pre = num;
-                }
-            }
-        }
-        if (count == 1) {
-            ret.add(start + "");
-        } else {
-            ret.add(start + "->" + pre);
-        }
-        return ret;
+
+    /**
+     * 区间描述
+     * key: start
+     * value: end
+     */
+    TreeMap<Integer, Integer> intervals;
+
+    public SummaryRanges() {
+        intervals = new TreeMap<>();
     }
 
-    public static void main(String[] args) {
-        SummaryRanges sr = new SummaryRanges();
-        List<String> ret = sr.summaryRanges(new int[]{0, 2, 3, 4, 6, 8, 9});
-        System.out.println(ret);
+    public void addNum(int val) {
+        // 左边
+        Map.Entry<Integer, Integer> interval1 = intervals.ceilingEntry(val + 1);
+        // 右边
+        Map.Entry<Integer, Integer> interval0 = intervals.floorEntry(val);
+        if (interval0 != null && interval0.getKey() <= val && val <= interval0.getValue()) {
+            // 当前数字以及包含在区间
+            return;
+        } else {
+            // 左边区间是否和当前val相邻
+            boolean leftAside = interval0 != null && interval0.getValue() + 1 == val;
+            boolean rightAside = interval1 != null && interval1.getKey() - 1 == val;
+            if (leftAside && rightAside) {
+                int left = interval0.getKey(), right = interval1.getValue();
+                intervals.remove(interval0.getKey());
+                intervals.remove(interval1.getKey());
+                intervals.put(left, right);
+            } else if (rightAside) {
+                Integer right = interval1.getValue();
+                intervals.remove(interval1.getKey());
+                intervals.put(val, right);
+            } else if (leftAside) {
+                Integer left = interval0.getKey();
+                intervals.remove(interval0.getKey());
+                intervals.put(left, val);
+            } else {
+                intervals.put(val, val);
+            }
+        }
+    }
+
+    public int[][] getIntervals() {
+        int[][] ans = new int[intervals.size()][2];
+        int index = 0;
+        for (Map.Entry<Integer, Integer> entry : intervals.entrySet()) {
+            ans[index][0] = entry.getKey();
+            ans[index][1] = entry.getValue();
+            index++;
+        }
+        return ans;
     }
 }
