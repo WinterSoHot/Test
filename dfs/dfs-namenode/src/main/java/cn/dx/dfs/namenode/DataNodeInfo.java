@@ -1,9 +1,13 @@
 package cn.dx.dfs.namenode;
 
+
+import lombok.Data;
+
 /**
  * @author gudongxian
  * @date 2021/10/20
  */
+@Data
 public class DataNodeInfo {
 
     private String ip;
@@ -13,29 +17,5 @@ public class DataNodeInfo {
     public DataNodeInfo(String ip, String hostName) {
         this.ip = ip;
         this.hostName = hostName;
-    }
-
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public String getHostName() {
-        return hostName;
-    }
-
-    public void setHostName(String hostName) {
-        this.hostName = hostName;
-    }
-
-    public long getLatestHeartBeatTime() {
-        return latestHeartBeatTime;
-    }
-
-    public void setLatestHeartBeatTime(long latestHeartBeatTime) {
-        this.latestHeartBeatTime = latestHeartBeatTime;
     }
 }

@@ -16,7 +16,7 @@ public class DataNode {
      */
     private NameNodeOfferService offerService;
 
-    private void initilalize() {
+    private void initialize() {
         this.shouldRun = true;
         this.offerService = new NameNodeOfferService();
         this.offerService.start();
@@ -34,7 +34,7 @@ public class DataNode {
 
     public static void main(String[] args) {
         DataNode dataNode = new DataNode();
-        dataNode.initilalize();
+        dataNode.initialize();
         dataNode.run();
     }
 }
