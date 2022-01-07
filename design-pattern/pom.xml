@@ -16,6 +16,7 @@
         <module>abstract-factory</module>
         <module>abstract-document</module>
         <module>acyclic-visitor</module>
+        <module>adapter</module>
     </modules>
 
     <properties>
