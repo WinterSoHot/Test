@@ -1,19 +1,19 @@
 package cn.dx.activeobject;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.nio.ch.ThreadPool;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author gudongxian
  * @date 2021/10/21
  */
-
+@Slf4j
 public abstract class ActiveCreature {
-
-    private static final Logger logger = LoggerFactory.getLogger(ActiveCreature.class.getName());
 
     private BlockingQueue<Runnable> requests;
 
@@ -23,19 +23,31 @@ public abstract class ActiveCreature {
 
     private String name;
 
+    private final static ThreadPoolExecutor executor = new ThreadPoolExecutor(
+            4, 8, 5, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10)
+            , new ThreadFactory() {
+        final AtomicLong index = new AtomicLong(0);
+
+        @Override
+        public Thread newThread(Runnable r) {
+            return new Thread(r, ActiveCreature.class.getSimpleName() + "#" + index.getAndIncrement());
+        }
+    }
+    );
+
 
     protected ActiveCreature(String name) {
         this.name = name;
         this.status = 0;
         this.requests = new LinkedBlockingQueue<>();
-        this.thread = new Thread(() -> {
+        executor.execute(() -> {
             boolean infinite = true;
             while (infinite) {
                 try {
                     requests.take().run();
                 } catch (InterruptedException e) {
                     if (this.status != 0) {
-                        logger.error("Thread was interrupted, --> {}", e.getMessage());
+                        log.error("Thread was interrupted, --> {}", e.getMessage());
                     }
                     infinite = false;
                     Thread.currentThread().interrupt();
@@ -53,8 +65,8 @@ public abstract class ActiveCreature {
      */
     public void eat() throws InterruptedException {
         requests.put(() -> {
-            logger.info("{} is eating!", name());
-            logger.info("{} has finished eating!", name());
+            log.info("{} is eating!", name());
+            log.info("{} has finished eating!", name());
         });
     }
 
@@ -65,7 +77,7 @@ public abstract class ActiveCreature {
      */
     public void roam() throws InterruptedException {
         requests.put(() ->
-                logger.info("{} has started to roam in the wastelands.", name())
+                log.info("{} has started to roam in the wastelands.", name())
         );
     }
 
