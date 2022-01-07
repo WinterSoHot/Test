@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>active-object</module>
+        <module>abstract-factory</module>
     </modules>
 
     <properties>
