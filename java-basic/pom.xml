@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>JavaBasic</artifactId>
+    <artifactId>java-basic</artifactId>
     <description>
         记录Java基础相关的代码
     </description>

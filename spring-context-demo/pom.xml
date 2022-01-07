@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <description>测试一下Spring自定义注解扫描的功能</description>
 
-    <artifactId>SpringContextDemo</artifactId>
+    <artifactId>spring-context-demo</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

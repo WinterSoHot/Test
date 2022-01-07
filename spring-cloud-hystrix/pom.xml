@@ -7,7 +7,7 @@
         <groupId>cn.dx</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>sping-cloud-hystrix</artifactId>
+    <artifactId>spring-cloud-hystrix</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-hystrix</name>
     <description>Spring Cloud 学习</description>

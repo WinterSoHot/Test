@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Default</artifactId>
+    <artifactId>default</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

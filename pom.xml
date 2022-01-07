@@ -24,6 +24,7 @@
         <module>common-txevent</module>
         <module>common-state</module>
         <module>design-pattern</module>
+        <module>dfs</module>
     </modules>
     <description>
         记录自己的代码
@@ -60,6 +61,11 @@
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>1.4.7.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>io.github.resilience4j</groupId>
