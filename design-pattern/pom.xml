@@ -15,6 +15,7 @@
         <module>active-object</module>
         <module>abstract-factory</module>
         <module>abstract-document</module>
+        <module>acyclic-visitor</module>
     </modules>
 
     <properties>
