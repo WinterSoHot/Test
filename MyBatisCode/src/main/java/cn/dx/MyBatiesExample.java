@@ -1,23 +1,11 @@
 package cn.dx;
 
-import cn.dx.mapper.AccountMapper;
-import cn.dx.mapper.FieldMapMapper;
-import cn.dx.model.Account;
-import org.apache.ibatis.mapping.Environment;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.ibatis.transaction.TransactionFactory;
-import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
-
 import javax.sql.DataSource;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -82,20 +70,20 @@ public class MyBatiesExample {
                 return null;
             }
         };
-        TransactionFactory transactionFactory = new JdbcTransactionFactory();
-        Environment environment = new Environment("development", transactionFactory, dataSource);
-        Configuration configuration = new Configuration(environment);
-        configuration.addMapper(AccountMapper.class);
-        configuration.addMapper(FieldMapMapper.class);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
-        try (SqlSession session = sqlSessionFactory.openSession()) {
-            AccountMapper accountMapper = session.getMapper(AccountMapper.class);
-            List<Account> accounts = accountMapper.selectAll();
-            accounts.forEach(System.out::println);
-            FieldMapMapper fieldMapMapper = session.getMapper(FieldMapMapper.class);
-            fieldMapMapper.selectAll().forEach(fieldMap -> System.out.println(fieldMap.getField()));
-        } finally {
-            System.out.println("执行结束");
-        }
+//        TransactionFactory transactionFactory = new JdbcTransactionFactory();
+//        Environment environment = new Environment("development", transactionFactory, dataSource);
+//        Configuration configuration = new Configuration(environment);
+//        configuration.addMapper(AccountMapper.class);
+//        configuration.addMapper(FieldMapMapper.class);
+//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
+//        try (SqlSession session = sqlSessionFactory.openSession()) {
+//            AccountMapper accountMapper = session.getMapper(AccountMapper.class);
+//            List<Account> accounts = accountMapper.selectAll();
+//            accounts.forEach(System.out::println);
+//            FieldMapMapper fieldMapMapper = session.getMapper(FieldMapMapper.class);
+//            fieldMapMapper.selectAll().forEach(fieldMap -> System.out.println(fieldMap.getField()));
+//        } finally {
+//            System.out.println("执行结束");
+//        }
     }
 }
