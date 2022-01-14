@@ -11,6 +11,9 @@ public class GPRequest {
     private String method;
     private String url;
 
+    public GPRequest() {
+    }
+
     public GPRequest(InputStream is) {
         // 解析HTTP内容
         try {

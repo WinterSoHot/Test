@@ -10,6 +10,9 @@ import java.io.OutputStream;
 public class GPResponse {
     private OutputStream output;
 
+    public GPResponse() {
+    }
+
     public GPResponse(OutputStream output) {
         this.output = output;
     }
