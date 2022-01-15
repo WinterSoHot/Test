@@ -25,6 +25,7 @@
         <module>common-state</module>
         <module>design-pattern</module>
         <module>dfs</module>
+        <module>netty-rpc</module>
     </modules>
     <description>
         记录自己的代码
