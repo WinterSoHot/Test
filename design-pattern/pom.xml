@@ -21,6 +21,7 @@
         <module>ambassador</module>
         <module>async-method-invocation</module>
         <module>balking</module>
+        <module>bridge</module>
     </modules>
     <dependencies>
         <dependency>
