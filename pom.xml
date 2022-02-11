@@ -26,6 +26,7 @@
         <module>design-pattern</module>
         <module>dfs</module>
         <module>netty-rpc</module>
+        <module>mocktio-demo</module>
     </modules>
     <description>
         记录自己的代码
