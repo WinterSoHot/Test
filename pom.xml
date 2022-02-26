@@ -28,6 +28,8 @@
         <module>netty-rpc</module>
         <module>mocktio-demo</module>
         <module>netty-proxy</module>
+        <module>netty-example</module>
+        <module>java-senior</module>
     </modules>
     <description>
         记录自己的代码

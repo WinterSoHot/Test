@@ -1,0 +1,117 @@
+Classfile /D:/Projects/IdeaProjects/Test/java-senior/target/classes/cn/dx/java/senior/core/MovingAverage.class
+  Last modified 2022-2-15; size 632 bytes
+  MD5 checksum ddef36114d6710e7708d92d0f8d78b8b
+  Compiled from "MovingAverage.java"
+public class cn.dx.java.senior.core.MovingAverage
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #5.#25         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #4.#26         // cn/dx/java/senior/core/MovingAverage.count:I
+   #3 = Fieldref           #4.#27         // cn/dx/java/senior/core/MovingAverage.sum:D
+   #4 = Class              #28            // cn/dx/java/senior/core/MovingAverage
+   #5 = Class              #29            // java/lang/Object
+   #6 = Utf8               count
+   #7 = Utf8               I
+   #8 = Utf8               sum
+   #9 = Utf8               D
+  #10 = Utf8               <init>
+  #11 = Utf8               ()V
+  #12 = Utf8               Code
+  #13 = Utf8               LineNumberTable
+  #14 = Utf8               LocalVariableTable
+  #15 = Utf8               this
+  #16 = Utf8               Lcn/dx/java/senior/core/MovingAverage;
+  #17 = Utf8               submit
+  #18 = Utf8               (D)V
+  #19 = Utf8               value
+  #20 = Utf8               getAvg
+  #21 = Utf8               ()D
+  #22 = Utf8               StackMapTable
+  #23 = Utf8               SourceFile
+  #24 = Utf8               MovingAverage.java
+  #25 = NameAndType        #10:#11        // "<init>":()V
+  #26 = NameAndType        #6:#7          // count:I
+  #27 = NameAndType        #8:#9          // sum:D
+  #28 = Utf8               cn/dx/java/senior/core/MovingAverage
+  #29 = Utf8               java/lang/Object
+{
+  public cn.dx.java.senior.core.MovingAverage();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iconst_0
+         6: putfield      #2                  // Field count:I
+         9: aload_0
+        10: dconst_0
+        11: putfield      #3                  // Field sum:D
+        14: return
+      LineNumberTable:
+        line 7: 0
+        line 8: 4
+        line 9: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      15     0  this   Lcn/dx/java/senior/core/MovingAverage;
+
+  public void submit(double);
+    descriptor: (D)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=3, args_size=2
+         0: aload_0
+         1: dup
+         2: getfield      #2                  // Field count:I
+         5: iconst_1
+         6: iadd
+         7: putfield      #2                  // Field count:I
+        10: aload_0
+        11: dup
+        12: getfield      #3                  // Field sum:D
+        15: dload_1
+        16: dadd
+        17: putfield      #3                  // Field sum:D
+        20: return
+      LineNumberTable:
+        line 12: 0
+        line 13: 10
+        line 14: 20
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      21     0  this   Lcn/dx/java/senior/core/MovingAverage;
+            0      21     1 value   D
+
+  public double getAvg();
+    descriptor: ()D
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field count:I
+         4: ifne          12
+         7: aload_0
+         8: getfield      #3                  // Field sum:D
+        11: dreturn
+        12: aload_0
+        13: getfield      #3                  // Field sum:D
+        16: aload_0
+        17: getfield      #2                  // Field count:I
+        20: i2d
+        21: ddiv
+        22: dreturn
+      LineNumberTable:
+        line 17: 0
+        line 18: 7
+        line 20: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      23     0  this   Lcn/dx/java/senior/core/MovingAverage;
+      StackMapTable: number_of_entries = 1
+        frame_type = 12 /* same */
+}
+SourceFile: "MovingAverage.java"

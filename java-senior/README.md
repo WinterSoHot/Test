@@ -1,0 +1,103 @@
+# Java 进阶
+
+## core
+
+字节码
+
+```shell
+javap -c .\target\classes\cn\dx\java\senior\core\HelloByteCode.class
+```
+
+```shell
+Compiled from "HelloByteCode.java"
+public class cn.dx.java.senior.core.HelloByteCode {
+  public cn.dx.java.senior.core.HelloByteCode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #2                  // class cn/dx/java/senior/core/HelloByteCode
+       3: dup
+       4: invokespecial #3                  // Method "<init>":()V
+       7: astore_1
+       8: return
+}
+```
+
+助记符显示
+
+```shell
+javap -c -verbose.\target\classes\cn\dx\java\senior\core\HelloByteCode.class
+```
+
+```shell
+Classfile /D:/Projects/IdeaProjects/Test/java-senior/target/classes/cn/dx/java/senior/core/HelloByteCode.class
+  Last modified 2022-2-15; size 462 bytes
+  MD5 checksum 52c4f882c9ed4dea6e0419b0d61f50e3
+  Compiled from "HelloByteCode.java"
+public class cn.dx.java.senior.core.HelloByteCode
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #4.#19         // java/lang/Object."<init>":()V
+   #2 = Class              #20            // cn/dx/java/senior/core/HelloByteCode
+   #3 = Methodref          #2.#19         // cn/dx/java/senior/core/HelloByteCode."<init>":()V
+   #4 = Class              #22            // java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Utf8               Code
+   #8 = Utf8               LineNumberTable
+   #9 = Utf8               LocalVariableTable
+  #10 = Utf8               this
+  #11 = Utf8               Lcn/dx/java/senior/core/HelloByteCode;
+  #12 = Utf8               main
+  #13 = Utf8               ([Ljava/lang/String;)V
+  #14 = Utf8               args
+  #15 = Utf8               [Ljava/lang/String;
+  #16 = Utf8               demo
+  #17 = Utf8               SourceFile
+  #18 = Utf8               HelloByteCode.java
+  #19 = NameAndType        #5:#6          // "<init>":()V
+  #20 = Utf8               cn/dx/java/senior/core/HelloByteCode
+  #21 = Utf8               java/lang/Object
+{
+  public cn.dx.java.senior.core.HelloByteCode();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 7: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcn/dx/java/senior/core/HelloByteCode;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: new           #2                  // class cn/dx/java/senior/core/HelloByteCode
+         3: dup
+         4: invokespecial #3                  // Method "<init>":()V
+         7: astore_1
+         8: return
+      LineNumberTable:
+        line 9: 0
+        line 10: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  args   [Ljava/lang/String;
+            8       1     1  demo   Lcn/dx/java/senior/core/HelloByteCode;
+}
+SourceFile: "HelloByteCode.java"
+```
+
+更加详细的显示，包括常量池，局部变量表，行号表（作为调试定位），版本号，方法信息
