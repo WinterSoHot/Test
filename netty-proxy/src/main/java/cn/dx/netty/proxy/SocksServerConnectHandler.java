@@ -58,7 +58,9 @@ public final class SocksServerConnectHandler extends SimpleChannelInboundHandler
                                     @Override
                                     public void operationComplete(ChannelFuture channelFuture) {
                                         ctx.pipeline().remove(SocksServerConnectHandler.this);
+                                        // 将实际服务器的数据发送给客户端
                                         outboundChannel.pipeline().addLast(new RelayHandler(ctx.channel()));
+                                        // 将当前客户端请求的数据发送到实际服务器
                                         ctx.pipeline().addLast(new RelayHandler(outboundChannel));
                                     }
                                 });

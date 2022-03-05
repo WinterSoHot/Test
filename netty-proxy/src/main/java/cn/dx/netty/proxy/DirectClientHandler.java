@@ -20,6 +20,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.concurrent.Promise;
 
+/**
+ * 和真正的服务器进行连接
+ */
 public final class DirectClientHandler extends ChannelInboundHandlerAdapter {
 
     private final Promise<Channel> promise;
@@ -31,6 +34,8 @@ public final class DirectClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         ctx.pipeline().remove(this);
+        // 和 实际服务器通道连接成功
+        // 触发Promise 并携带当前和实际服务器的通道
         promise.setSuccess(ctx.channel());
     }
 
